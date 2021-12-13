@@ -16,14 +16,17 @@ class Button:
         pygame.draw.rect(
             win, self.color, (self.x, self.y, self.width, self.height))
         # to draw the broder
-        pygame.draw.rect(win, BLACK, (self.x, self.y,
-                         self.width, self.height), 2)
+        # if self.text == None:
+        #     pygame.draw.rect(win, BLACK, (self.x, self.y,
+        #                                   self.width, self.height), 1)
 
         if self.text:
             button_font = get_font(15)
             text_surface = button_font.render(self.text, 1, self.text_color)
             win.blit(text_surface, (self.x+self.width/2 - text_surface.get_width() /
                      2, (self.y+self.height/2 - text_surface.get_height()/2)))
+            pygame.draw.rect(win, BLACK, (self.x, self.y,
+                                          self.width, self.height), 1)
 
     def clicked(self, pos):
         x, y = pos

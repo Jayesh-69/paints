@@ -59,11 +59,17 @@ drawing_color = BLACK
 button_y_pos = HEIGHT-TOOLBAR_HEIGHT/2-15
 buttons = [
     Button(10, button_y_pos, 30, 30, BLACK),
-    Button(50, button_y_pos, 30, 30, RED),
-    Button(90, button_y_pos, 30, 30, GREEN),
-    Button(130, button_y_pos, 30, 30, BLUE),
-    Button(170, button_y_pos, 30, 30, WHITE, "Erase", BLACK),
-    Button(210, button_y_pos, 30, 30, WHITE, "Clear", BLACK)
+    Button(40, button_y_pos, 30, 30, RED),
+    Button(70, button_y_pos, 30, 30, GREEN),
+    Button(100, button_y_pos, 30, 30, BLUE),
+    Button(130, button_y_pos, 30, 30, VIOLET),
+    Button(160, button_y_pos, 30, 30, INDIGO),
+    Button(190, button_y_pos, 30, 30, ORANGE),
+    Button(220, button_y_pos, 30, 30, YELLOW),
+    Button(330, button_y_pos, 30, 30, WHITE, "Erase", BLACK),
+    Button(370, button_y_pos, 30, 30, WHITE, "Clear", BLACK),
+    Button(410, button_y_pos, 30, 30, WHITE, "Save", BLACK)
+
 ]
 
 # main event loop
@@ -88,6 +94,10 @@ while run:
                     if button.text == "Clear":
                         grid = init_grid(ROWS, COLS, BG_COLOR)
                         drawing_color = BLACK
+
+                    if button.text == "Save":
+                        temp = pygame.Rect(0, 0, WIDTH, HEIGHT-TOOLBAR_HEIGHT)
+                        pygame.image.save(WIN.subsurface(temp), "temp.jpg")
 
     draw(WIN, grid, buttons)
 
